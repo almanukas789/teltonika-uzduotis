@@ -7,10 +7,10 @@ import JwPagination from 'jw-vue-pagination'
 Vue.component('jw-pagination', JwPagination)
 Vue.config.productionTip = false
 
-Vue.prototype.$jsonServer = "http://localhost:3001";
+Vue.prototype.$jsonServer = "http://localhost:3000";
 new Vue({
   el: '#app',
   router,
   components: { App },
   template: '<App/>'
-})
+})s
