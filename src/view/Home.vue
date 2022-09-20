@@ -2,6 +2,7 @@
   <div id="app" class="container is-max-desktop">
     <Style />
     <br /><br />
+    <Pagination></Pagination>
     <Action_alert v-if="isShowingAlert">{{ actionName }}</Action_alert>
     <div style="text-align: center">
       <input
@@ -72,6 +73,7 @@ import Delete_alert from "@/components/Delete_alert.vue";
 import Action_alert from "@/components/Action_alert.vue";
 import UpdateForm from "@/components/UpdateForm.vue";
 import PostForm from "@/components/PostForm.vue";
+import Pagination from "@/components/Pagination.vue";
 export default {
   components: {
     Style,
@@ -79,6 +81,7 @@ export default {
     Action_alert,
     UpdateForm,
     PostForm,
+    Pagination,
   },
   data() {
     return {
