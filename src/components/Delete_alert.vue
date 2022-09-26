@@ -1,5 +1,6 @@
 <template>
   <div class="modal is-active" v-if="(is_showing = this.applied)">
+    <Notification v-if="isShowing">{{ not_body }}</Notification>
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
@@ -14,7 +15,14 @@
 </template>
 <script>
 import axios from "axios";
+import Notification from "@/components/Notification.vue";
+import notification from "@/mixin/notification.js";
+
 export default {
+  mixins: [notification],
+  components: {
+    Notification,
+  },
   props: ["applied", "tempData"],
   data() {
     return {
@@ -38,7 +46,7 @@ export default {
       this.is_showing = false;
       this.$emit("alert_for_delete", this.is_showing);
       this.$emit("deleted", this.is_showing);
-      this.$router.go();
+      this.toast("Straipsnis istrintas!");
     },
   },
 };

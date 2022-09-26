@@ -1,5 +1,6 @@
 <template>
   <form action="#">
+    <Notification v-if="isShowing">{{ not_body }}</Notification>
     <div class="modal is-active" v-if="(is_showing = this.applied)">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -37,7 +38,13 @@
 </template>
 <script>
 import axios from "axios";
+import Notification from "@/components/Notification.vue";
+import notification from "@/mixin/notification.js";
 export default {
+  mixins: [notification],
+  components: {
+    Notification,
+  },
   props: ["applied", "tempData"],
   data() {
     return {
@@ -85,8 +92,9 @@ export default {
             this.errorMessage = error.message;
             console.error("ERRORAS!", error);
           });
+
+        this.toast("Pridetas naujas straipsnis!");
         this.$emit("renew");
-        this.$router.go();
         this.title = "";
         this.body = "";
         this.author = "";

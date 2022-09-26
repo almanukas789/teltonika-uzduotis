@@ -2,7 +2,6 @@
   <div id="app" class="container is-max-desktop">
     <Style />
     <br /><br />
-    <Action_alert v-if="isShowingAlert">{{ actionName }}</Action_alert>
     <div style="text-align: center">
       <input
         class="input"
@@ -10,6 +9,7 @@
         v-model="filter"
         placeholder="Paieska"
       />
+      <notification v-if="isShowing">{{ not_body }}</notification>
       <br /><br />
       <div style="text-align: center">
         <button class="button is-info" @click="addNew">Prideti nauja straipsni</button>
@@ -17,6 +17,7 @@
     </div>
     <div class="card text-center m-3">
       <div style="text-align: center">
+        <h1 v-if="errored == true">Neprisijungia prie duomenu</h1>
         <div v-for="item in pageOfItems" :key="item.id">
           <router-link
             :to="{
@@ -68,13 +69,17 @@ import Delete_alert from "@/components/Delete_alert.vue";
 import UpdateForm from "@/components/UpdateForm.vue";
 import PostForm from "@/components/PostForm.vue";
 import Pagination from "@/components/Pagination.vue";
+import Notification from "@/components/Notification.vue";
+import notification from "@/mixin/notification.js";
 export default {
+  mixins: [notification],
   components: {
     Style,
     Delete_alert,
     UpdateForm,
     PostForm,
     Pagination,
+    Notification,
   },
   data() {
     return {
@@ -85,7 +90,6 @@ export default {
       modalForAddAlert: false,
       deleteModal: false,
       tempData: null,
-      isShowingAlert: false,
       editModal: false,
     };
   },
@@ -122,6 +126,9 @@ export default {
     },
     closeEditModal() {
       this.editModal = false;
+    },
+    toast(item) {
+      this.toast(item);
     },
   },
 };

@@ -1,5 +1,6 @@
 <template>
   <form action="#">
+    <Notification v-if="isShowing">{{ not_body }}</Notification>
     <div class="modal is-active" v-if="(is_showing = this.applied)">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -33,14 +34,28 @@
 </template>
 <script>
 import axios from "axios";
+import Notification from "@/components/Notification.vue";
+import notification from "@/mixin/notification.js";
 export default {
   props: ["applied", "tempData"],
+  mixins: [notification],
+  components: {
+    Notification,
+  },
   data() {
     return {
       is_showing: false,
+      date: this.currentDate(),
     };
   },
   methods: {
+    currentDate() {
+      const current = new Date();
+      const date = `${current.getDate()}/${
+        current.getMonth() + 1
+      }/${current.getFullYear()}`;
+      return date;
+    },
     closeModal(item) {
       if (item.title != "" && item.body != "") {
         this.is_showing = false;
@@ -48,6 +63,8 @@ export default {
       }
     },
     updateData(item) {
+      item.updated_at = this.date;
+
       if (item.title != "" && item.body != "") {
         axios
           .put(this.$jsonServer + "/posts/" + item.id, item)
@@ -58,7 +75,7 @@ export default {
           });
         this.is_showing = false;
         this.$emit("renew");
-        this.$router.go();
+        this.toast("Sekmingai paredeguota");
       }
     },
   },
