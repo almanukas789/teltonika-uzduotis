@@ -113,7 +113,7 @@ export default {
     deleted(item) {
       this.Posts.splice(this.Posts.indexOf(item), 1);
       this.deleteModal = false;
-      this.toast("Irasas istrintas");
+      this.toast("Irasas istrintas!");
       setTimeout(() => {}, 1000);
     },
     close_alert() {
