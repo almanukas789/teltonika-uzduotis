@@ -18,6 +18,7 @@
     <div class="card text-center m-3">
       <div style="text-align: center">
         <h1 v-if="errored == true">Neprisijungia prie duomenu</h1>
+        <h1 v-if="pageOfItems == null">Nera duomenu</h1>
         <div v-for="item in pageOfItems" :key="item.id">
           <router-link
             :to="{
@@ -51,14 +52,19 @@
       ></Pagination>
     </div>
 
-    <delete_alert :tempData="tempData" :applied="deleteModal" @renew="close_alert">
+    <delete_alert
+      :tempData="tempData"
+      :applied="deleteModal"
+      @deleted="deleted"
+      @renew="close_alert"
+    >
     </delete_alert>
     <UpdateForm
       :tempData="tempData"
       :applied="editModal"
       @renew="closeEditModal"
     ></UpdateForm>
-    <PostForm :applied="modalForAddAlert" @renew="closeNew"></PostForm>
+    <PostForm :applied="modalForAddAlert" @renew="closeNew" @added="added"></PostForm>
   </div>
 </template>
 
@@ -104,6 +110,12 @@ export default {
   },
 
   methods: {
+    deleted(item) {
+      this.Posts.splice(this.Posts.indexOf(item), 1);
+      this.deleteModal = false;
+      this.toast("Irasas istrintas");
+      setTimeout(() => {}, 1000);
+    },
     close_alert() {
       this.deleteModal = false;
     },
@@ -111,6 +123,11 @@ export default {
       this.deleteModal = true;
       this.tempData = item;
     },
+    added(item) {
+      this.Posts.push(item);
+      this.modalForAddAlert = false;
+    },
+
     addNew() {
       this.modalForAddAlert = true;
     },
@@ -126,9 +143,6 @@ export default {
     },
     closeEditModal() {
       this.editModal = false;
-    },
-    toast(item) {
-      this.toast(item);
     },
   },
 };

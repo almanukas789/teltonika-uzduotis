@@ -54,6 +54,7 @@ export default {
       body: "",
       Authors: [],
       createdDate: this.currentDate(),
+      idas: "",
     };
   },
   mounted() {
@@ -84,17 +85,18 @@ export default {
           body: this.body,
           created_at: this.createdDate,
           updated_at: "",
+          id: "",
         };
         axios
           .post(this.$jsonServer + "/posts", tempData)
-          .then((response) => (this.articleId = response.data.id))
+          .then((response) => (tempData.id = response.data.id))
           .catch((error) => {
             this.errorMessage = error.message;
             console.error("ERRORAS!", error);
           });
 
         this.toast("Pridetas naujas straipsnis!");
-        this.$emit("renew");
+        this.$emit("added", tempData);
         this.title = "";
         this.body = "";
         this.author = "";

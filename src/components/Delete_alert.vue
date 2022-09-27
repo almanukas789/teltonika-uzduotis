@@ -35,6 +35,7 @@ export default {
       this.$emit("renew");
     },
     delete_action() {
+      this.is_showing = false;
       axios
         .delete(this.$jsonServer + `/posts/${this.tempData.id}`)
         .then((response) => {
@@ -43,10 +44,8 @@ export default {
         .catch(function (error) {
           console.log(error.response);
         });
-      this.is_showing = false;
-      this.$emit("alert_for_delete", this.is_showing);
-      this.$emit("deleted", this.is_showing);
-      this.toast("Straipsnis istrintas!");
+      this.$emit("renew");
+      this.$emit("deleted", this.tempData);
     },
   },
 };

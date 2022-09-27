@@ -97,15 +97,7 @@
       "author": "Tomas",
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu elit ut orci volutpat mattis. Phasellus posuere, eros quis vehicula efficitur, velit nunc ullamcorper odio, a placerat purus odio vel risus. Integer posuere metus ex. Proin posuere lectus et augue congue luctus. Ut faucibus odio tincidunt, bibendum nisi semper, lobortis massa. Etiam luctus egestas magna, eget vulputate mi consectetur in. Nulla pellentesque vestibulum porttitor. Etiam purus ante, fringilla nec gravida sit amet, imperdiet a lorem. Aliquam eu risus sed diam efficitur vehicula id vitae enim. Praesent ipsum enim, interdum nec turpis egestas, elementum imperdiet diam. Proin id convallis tellus. Aenean tincidunt dolor rutrum, malesuada sem fringilla, ornare urna. Ut accumsan justo quis nisl porttitor, nec finibus tortor congue. Mauris at placerat erat, hendrerit tempor dolor.",
       "created_at": "1/9/2022",
-      "updated_at": "2/9/2022"
-    },
-    {
-      "title": "Geltonas Kamuolys",
-      "id": 15,
-      "author": "Rytis",
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu elit ut orci volutpat mattis. Phasellus posuere, eros quis vehicula efficitur, velit nunc ullamcorper odio, a placerat purus odio vel risus. Integer posuere metus ex. Proin posuere lectus et augue congue luctus. Ut faucibus odio tincidunt, bibendum nisi semper, lobortis massa. Etiam luctus egestas magna, eget vulputate mi consectetur in. Nulla pellentesque vestibulum porttitor. Etiam purus ante, fringilla nec gravida sit amet, imperdiet a lorem. Aliquam eu risus sed diam efficitur vehicula id vitae enim. Praesent ipsum enim, interdum nec turpis egestas, elementum imperdiet diam. Proin id convallis tellus. Aenean tincidunt dolor rutrum, malesuada sem fringilla, ornare urna. Ut accumsan justo quis nisl porttitor, nec finibus tortor congue. Mauris at placerat erat, hendrerit tempor dolor.",
-      "created_at": "1/9/2022",
-      "updated_at": "26/9/2022"
+      "updated_at": "27/9/2022"
     }
   ]
 }

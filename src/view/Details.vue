@@ -9,6 +9,7 @@
       @deleted="deletedPosts"
     >
     </delete_alert>
+    <notification v-if="isShowing">{{ not_body }}</notification>
     <UpdateForm :tempData="tempData" :applied="editModal" @renew="closeEditModal">
     </UpdateForm>
     <details-form v-if="this.isErrored != false">Tokio iraso nera</details-form>
@@ -46,6 +47,9 @@ import DetailsForm from "@/components/DetailsForm.vue";
 import axios from "axios";
 import Delete_alert from "@/components/Delete_alert.vue";
 import UpdateForm from "@/components/UpdateForm.vue";
+import Notification from "@/components/Notification.vue";
+import notification from "@/mixin/notification.js";
+
 export default {
   data() {
     return {
@@ -57,7 +61,9 @@ export default {
       created_date: this.currentDate(),
     };
   },
+  mixins: [notification],
   components: {
+    Notification,
     Style,
     DetailsForm,
     Delete_alert,
@@ -84,8 +90,11 @@ export default {
       this.editModal = false;
     },
     deletedPosts() {
+      this.toast("Straipsnis istrintas!");
       this.deleteAlert = false;
-      this.$router.push({ name: "Home" });
+      setTimeout(() => {
+        this.$router.push({ name: "Home" });
+      }, 900);
     },
     closeDeleteAlert() {
       this.deleteAlert = false;
