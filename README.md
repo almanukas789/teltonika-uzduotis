@@ -1,4 +1,11 @@
 # Task
+
+
+https://user-images.githubusercontent.com/75335966/204816882-1e3fc2ad-e09f-4ae3-ac2c-86294a382d29.mov
+
+
+
+
 Šios užduoties tikslas įprasminti ir praplėsti jau turimas vue.js žinias praktiškai ir teoriškai.
 
 Užduočiai atlikti naudokite vue.js 2 karkasą ir vue router 3 versiją.
