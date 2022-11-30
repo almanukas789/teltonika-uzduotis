@@ -3,14 +3,14 @@ https://user-images.githubusercontent.com/75335966/204816882-1e3fc2ad-e09f-4ae3-
 
 
 # Task
-``` bash
+
 Šios užduoties tikslas įprasminti ir praplėsti jau turimas vue.js žinias praktiškai ir teoriškai.
 
 Užduočiai atlikti naudokite vue.js 2 karkasą ir vue router 3 versiją.
 
 Užduoties metu bus kuriama paprasta straipsnių sistema.
 
-API imitavimui reikės naudoti json-server, kurio dokumentaciją galite rasti čia.
+API imitavimui reikės naudoti json-server, kurio dokumentaciją galite rasti <a href="https://github.com/typicode/json-server">čia.</a>
 
 Json-server duomenų bazė turės susidėti iš šių lentelių:
 
@@ -97,7 +97,7 @@ Vartotojas apie kiekvieną atlikta veiksmą, ar pavyko jį atlikti ar ne, turi b
 Apsilankius puslapyje, kurio nėra, vartotojas turi būti nukreiptas į 404 puslapį.
 
 Sukurti minimalų dizainą, kad visi sistemos elementai būtų tvarkingai išdėstyti. Rekomenduojama naudoti BULMA CSS karkasą, bet galite naudoti ir savo pasirinktą.
-```
+
 ## Build Setup
 
 ``` bash
